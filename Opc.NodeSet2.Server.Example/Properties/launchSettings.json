@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Opc.NodeSet2.Server.Example": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
