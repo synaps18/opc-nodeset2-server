@@ -1,0 +1,54 @@
+name: Publish NuGet Package
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Ensure annotated tag
+        id: check_annotated
+        run: |
+          TAG_NAME="${GITHUB_REF##*/}"
+          echo "Checking if tag '$TAG_NAME' is annotated..."
+
+          # Hole Tag-Objekttyp: sollte "tag" für annotated sein, "commit" für lightweight
+          TAG_TYPE=$(git cat-file -t "$TAG_NAME" || echo "none")
+
+          if [ "$TAG_TYPE" != "tag" ]; then
+            echo "❌ Tag '$TAG_NAME' ist kein annotated tag (Typ: $TAG_TYPE). Workflow wird abgebrochen."
+            exit 1
+          else
+            echo "✅ Annotated tag erkannt: $TAG_NAME"
+          fi
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Get version from tag
+        id: get_version
+        run: |
+          TAG=${GITHUB_REF##*/}
+          VERSION=${TAG#v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build in Release
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack NuGet package
+        run: |
+          dotnet pack --configuration Release \
+            -p:PackageVersion=${{ steps.get_version.outputs.version }} \
+            --output ./nupkg
