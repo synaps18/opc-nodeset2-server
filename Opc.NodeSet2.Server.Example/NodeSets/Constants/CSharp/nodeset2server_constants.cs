@@ -15,19 +15,23 @@ namespace NodeSet2Server.WebApi
     public static class BrowseNames
     {
         /// <remarks />
-        public const string CallMe = "CallMe";
-        /// <remarks />
-        public const string CallMe2 = "CallMe2";
+        public const string Create_demo_structure = "Create demo structure";
         /// <remarks />
         public const string Demo = "Demo";
         /// <remarks />
-        public const string Demo_Structure = "Demo Structure";
+        public const string Demo_structures = "Demo structures";
         /// <remarks />
         public const string DemoStructure = "DemoStructure";
         /// <remarks />
+        public const string Hello_world = "Hello world";
+        /// <remarks />
         public const string http___OpcNodeSet2Server = "http://OpcNodeSet2Server";
         /// <remarks />
+        public const string Latest_demo_structure = "Latest demo structure";
+        /// <remarks />
         public const string Modeling_Editor = "Modeling Editor";
+        /// <remarks />
+        public const string Validate_demo_structure = "Validate demo structure";
     }
 
     /// <summary>

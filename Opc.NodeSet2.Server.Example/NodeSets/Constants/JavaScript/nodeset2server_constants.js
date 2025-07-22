@@ -1,13 +1,15 @@
 export const NS = 'http://OpcNodeSet2Server';
 
 export const BrowseNames = Object.freeze({
-   CallMe: 'CallMe',
-   CallMe2: 'CallMe2',
+   Create_demo_structure: 'Create demo structure',
    Demo: 'Demo',
-   Demo_Structure: 'Demo Structure',
+   Demo_structures: 'Demo structures',
    DemoStructure: 'DemoStructure',
+   Hello_world: 'Hello world',
    http___OpcNodeSet2Server: 'http://OpcNodeSet2Server',
+   Latest_demo_structure: 'Latest demo structure',
    Modeling_Editor: 'Modeling Editor',
+   Validate_demo_structure: 'Validate demo structure',
 });
 
 export const DataTypeIds = Object.freeze({

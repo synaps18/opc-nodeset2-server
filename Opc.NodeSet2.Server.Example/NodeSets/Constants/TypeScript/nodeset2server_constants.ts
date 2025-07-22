@@ -1,13 +1,15 @@
 export const NS = 'http://OpcNodeSet2Server';
 
 export class BrowseNames {
-   static readonly CallMe: string = 'CallMe'
-   static readonly CallMe2: string = 'CallMe2'
+   static readonly Create_demo_structure: string = 'Create demo structure'
    static readonly Demo: string = 'Demo'
-   static readonly Demo_Structure: string = 'Demo Structure'
+   static readonly Demo_structures: string = 'Demo structures'
    static readonly DemoStructure: string = 'DemoStructure'
+   static readonly Hello_world: string = 'Hello world'
    static readonly http___OpcNodeSet2Server: string = 'http://OpcNodeSet2Server'
+   static readonly Latest_demo_structure: string = 'Latest demo structure'
    static readonly Modeling_Editor: string = 'Modeling Editor'
+   static readonly Validate_demo_structure: string = 'Validate demo structure'
 }
 
 export class DataTypeIds {

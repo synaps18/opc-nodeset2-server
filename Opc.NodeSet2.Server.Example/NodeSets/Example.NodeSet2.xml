@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<UANodeSet LastModified="2025-07-21T19:42:25.129Z" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:si="http://www.siemens.com/OPCUA/2017/SimaticNodeSetExtensions" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<UANodeSet LastModified="2025-07-22T19:09:10.680Z" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:si="http://www.siemens.com/OPCUA/2017/SimaticNodeSetExtensions" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <NamespaceUris>
         <Uri>http://OpcNodeSet2Server</Uri>
     </NamespaceUris>
@@ -25,7 +25,7 @@
             <si:Generator Product="SiOME" Edition="Standard" Version="3.0.0-installer"/>
         </Extension>
         <Extension>
-            <si:GeneratorExtension Hash="42a3e55eef463af0911721a753c3a8d4"/>
+            <si:GeneratorExtension Hash="98ff011bea6568ae2cd0fcab51313509"/>
         </Extension>
     </Extensions>
     <UAObject SymbolicName="http___OpcNodeSet2Server" NodeId="ns=1;i=5000" BrowseName="1:http://OpcNodeSet2Server" ParentNodeId="i=11715">
@@ -148,8 +148,8 @@
             <Reference ReferenceType="HasTypeDefinition">i=76</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="ns=1;i=3000" NodeId="ns=1;i=6016" BrowseName="1:Demo Structure" ParentNodeId="ns=1;i=5001" UserAccessLevel="3" AccessLevel="3" SymbolicName="Demo_Structure">
-        <DisplayName>Demo Structure</DisplayName>
+    <UAVariable DataType="ns=1;i=3000" NodeId="ns=1;i=6016" BrowseName="1:Latest demo structure" ParentNodeId="ns=1;i=5001" UserAccessLevel="3" AccessLevel="3" SymbolicName="Latest_demo_structure">
+        <DisplayName>Latest demo structure</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
@@ -168,33 +168,177 @@
             </uax:ExtensionObject>
         </Value>
     </UAVariable>
-    <UAMethod NodeId="ns=1;i=7000" BrowseName="1:CallMe" ParentNodeId="ns=1;i=5001">
-        <DisplayName>CallMe</DisplayName>
+    <UAMethod NodeId="ns=1;i=7000" BrowseName="1:Hello world" ParentNodeId="ns=1;i=5001">
+        <DisplayName>Hello world</DisplayName>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
         </References>
     </UAMethod>
-    <UAMethod NodeId="ns=1;i=7001" BrowseName="1:CallMe2" ParentNodeId="ns=1;i=5001">
-        <DisplayName>CallMe2</DisplayName>
+    <UAMethod NodeId="ns=1;i=7001" BrowseName="1:Create demo structure" ParentNodeId="ns=1;i=5001">
+        <DisplayName>Create demo structure</DisplayName>
         <Description>Call method example node with one parameter</Description>
         <References>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
         </References>
     </UAMethod>
-    <UAVariable DataType="i=296" ValueRank="1" NodeId="ns=1;i=6012" BrowseName="InputArguments" ParentNodeId="ns=1;i=7001">
+    <UAVariable DataType="i=296" ValueRank="1" NodeId="ns=1;i=6012" ArrayDimensions="1" BrowseName="InputArguments" ParentNodeId="ns=1;i=7001">
         <DisplayName>InputArguments</DisplayName>
         <Description>the definition of the input argument of method 1:Demo.1:CallMe2</Description>
         <References>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7001</Reference>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
         </References>
+        <Value>
+            <uax:ListOfExtensionObject>
+                <uax:ExtensionObject>
+                    <uax:TypeId>
+                        <uax:Identifier>i=297</uax:Identifier>
+                    </uax:TypeId>
+                    <uax:Body>
+                        <uax:Argument>
+                            <uax:Name>Information</uax:Name>
+                            <uax:DataType>
+                                <uax:Identifier>i=12</uax:Identifier>
+                            </uax:DataType>
+                            <uax:ValueRank>-1</uax:ValueRank>
+                            <uax:ArrayDimensions/>
+                            <uax:Description>
+                                <uax:Text>Give me any information</uax:Text>
+                            </uax:Description>
+                        </uax:Argument>
+                    </uax:Body>
+                </uax:ExtensionObject>
+            </uax:ListOfExtensionObject>
+        </Value>
     </UAVariable>
-    <UAVariable DataType="i=296" ValueRank="1" NodeId="ns=1;i=6013" BrowseName="OutputArguments" ParentNodeId="ns=1;i=7001">
+    <UAVariable DataType="i=296" ValueRank="1" NodeId="ns=1;i=6013" ArrayDimensions="1" BrowseName="OutputArguments" ParentNodeId="ns=1;i=7001">
         <DisplayName>OutputArguments</DisplayName>
         <Description>the definition of the output arguments of method 1:Demo.1:CallMe2</Description>
         <References>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7001</Reference>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+        </References>
+        <Value>
+            <uax:ListOfExtensionObject>
+                <uax:ExtensionObject>
+                    <uax:TypeId>
+                        <uax:Identifier>i=297</uax:Identifier>
+                    </uax:TypeId>
+                    <uax:Body>
+                        <uax:Argument>
+                            <uax:Name>Demo Structure</uax:Name>
+                            <uax:DataType>
+                                <uax:Identifier>ns=1;i=3000</uax:Identifier>
+                            </uax:DataType>
+                            <uax:ValueRank>-1</uax:ValueRank>
+                            <uax:ArrayDimensions/>
+                            <uax:Description>
+                                <uax:Text>Turns your information into a demo structure</uax:Text>
+                            </uax:Description>
+                        </uax:Argument>
+                    </uax:Body>
+                </uax:ExtensionObject>
+            </uax:ListOfExtensionObject>
+        </Value>
+    </UAVariable>
+    <UAMethod NodeId="ns=1;i=7002" BrowseName="1:Validate demo structure" ParentNodeId="ns=1;i=5001">
+        <DisplayName>Validate demo structure</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
+        </References>
+    </UAMethod>
+    <UAVariable DataType="i=296" ValueRank="1" NodeId="ns=1;i=6010" ArrayDimensions="1" BrowseName="InputArguments" ParentNodeId="ns=1;i=7002">
+        <DisplayName>InputArguments</DisplayName>
+        <Description>the definition of the input argument of method 1:Demo.1:Validate demo structure</Description>
+        <References>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7002</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+        </References>
+        <Value>
+            <uax:ListOfExtensionObject>
+                <uax:ExtensionObject>
+                    <uax:TypeId>
+                        <uax:Identifier>i=297</uax:Identifier>
+                    </uax:TypeId>
+                    <uax:Body>
+                        <uax:Argument>
+                            <uax:Name>Demo structure</uax:Name>
+                            <uax:DataType>
+                                <uax:Identifier>ns=1;i=3000</uax:Identifier>
+                            </uax:DataType>
+                            <uax:ValueRank>-1</uax:ValueRank>
+                            <uax:ArrayDimensions/>
+                            <uax:Description>
+                                <uax:Text>The demo structure to validate</uax:Text>
+                            </uax:Description>
+                        </uax:Argument>
+                    </uax:Body>
+                </uax:ExtensionObject>
+            </uax:ListOfExtensionObject>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="i=296" ValueRank="1" NodeId="ns=1;i=6011" ArrayDimensions="1" BrowseName="OutputArguments" ParentNodeId="ns=1;i=7002">
+        <DisplayName>OutputArguments</DisplayName>
+        <Description>the definition of the output arguments of method 1:Demo.1:Validate demo structure</Description>
+        <References>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7002</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+        </References>
+        <Value>
+            <uax:ListOfExtensionObject>
+                <uax:ExtensionObject>
+                    <uax:TypeId>
+                        <uax:Identifier>i=297</uax:Identifier>
+                    </uax:TypeId>
+                    <uax:Body>
+                        <uax:Argument>
+                            <uax:Name>Result</uax:Name>
+                            <uax:DataType>
+                                <uax:Identifier>i=1</uax:Identifier>
+                            </uax:DataType>
+                            <uax:ValueRank>-1</uax:ValueRank>
+                            <uax:ArrayDimensions/>
+                            <uax:Description>
+                                <uax:Text>Validation result</uax:Text>
+                            </uax:Description>
+                        </uax:Argument>
+                    </uax:Body>
+                </uax:ExtensionObject>
+            </uax:ListOfExtensionObject>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="i=296" ValueRank="1" NodeId="ns=1;i=6015" ArrayDimensions="1" BrowseName="OutputArguments" ParentNodeId="ns=1;i=7000" UserAccessLevel="3" AccessLevel="3">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=7000</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+        </References>
+        <Value>
+            <uax:ListOfExtensionObject>
+                <uax:ExtensionObject>
+                    <uax:TypeId>
+                        <uax:Identifier>i=297</uax:Identifier>
+                    </uax:TypeId>
+                    <uax:Body>
+                        <uax:Argument>
+                            <uax:Name>Hello World</uax:Name>
+                            <uax:DataType>
+                                <uax:Identifier>i=12</uax:Identifier>
+                            </uax:DataType>
+                            <uax:ValueRank>-1</uax:ValueRank>
+                            <uax:ArrayDimensions/>
+                            <uax:Description/>
+                        </uax:Argument>
+                    </uax:Body>
+                </uax:ExtensionObject>
+            </uax:ListOfExtensionObject>
+        </Value>
+    </UAVariable>
+    <UAVariable DataType="ns=1;i=3000" ValueRank="1" NodeId="ns=1;i=6017" BrowseName="1:Demo structures" ParentNodeId="ns=1;i=5001" UserAccessLevel="3" AccessLevel="3" SymbolicName="Demo_structures">
+        <DisplayName>Demo structures</DisplayName>
+        <References>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5001</Reference>
+            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
         </References>
     </UAVariable>
 </UANodeSet>
