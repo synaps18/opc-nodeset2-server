@@ -5,11 +5,13 @@ using Opc.NodeSet2.Server.Services;
 using Opc.Ua;
 using Opc.Ua.Configuration;
 using Opc.Ua.Server;
+using Container = DryIoc.Container;
+using IContainer = DryIoc.IContainer;
 
 namespace Opc.NodeSet2.Server
 {
 	/// <summary>
-	/// Represents an application that initializes and starts a NodeSet2-based server.
+	///     Represents an application that initializes and starts a NodeSet2-based server.
 	/// </summary>
 	public class OpcNodeSet2Application
 	{
@@ -17,7 +19,7 @@ namespace Opc.NodeSet2.Server
 		protected readonly ApplicationInstance Application;
 
 		/// <summary>
-		/// Constructor
+		///     Constructor
 		/// </summary>
 		public OpcNodeSet2Application()
 		{
@@ -30,8 +32,8 @@ namespace Opc.NodeSet2.Server
 		}
 
 		/// <summary>
-		/// Starts the application by initializing and registering required components, loading the application configuration,
-		/// and starting the server and associated services.
+		///     Starts the application by initializing and registering required components, loading the application configuration,
+		///     and starting the server and associated services.
 		/// </summary>
 		public async Task StartAsync()
 		{
@@ -44,11 +46,10 @@ namespace Opc.NodeSet2.Server
 			RegisterNodeSet2Files(nodeSetFiles);
 
 			var serviceContainer = Container.Resolve<INodeServiceContainer>();
-			RegisterServices(serviceContainer);
+			RegisterServicesInternal(serviceContainer);
 
 
 			var server = Container.Resolve<IInternalStandardServer>();
-
 
 			await Application.LoadApplicationConfiguration(false);
 			await Application.CheckApplicationInstanceCertificates(false);
@@ -72,8 +73,15 @@ namespace Opc.NodeSet2.Server
 			//Nothing to do here
 		}
 
+		private void RegisterServicesInternal(INodeServiceContainer nodeServiceContainer)
+		{
+			nodeServiceContainer.Register<ApplyMethodArguments>();
+			RegisterServices(nodeServiceContainer);
+		}
+
 		protected virtual void RegisterTypes(IContainer container)
 		{
+			//Nothing to do here
 		}
 
 		private void RegisterTypesInternal(IContainer container)
