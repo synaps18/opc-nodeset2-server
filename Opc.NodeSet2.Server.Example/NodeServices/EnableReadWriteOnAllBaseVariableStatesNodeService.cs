@@ -4,12 +4,20 @@ using Opc.Ua;
 
 namespace Opc.NodeSet2.Server.Example.NodeServices;
 
+/// <summary>
+/// Enables Read and Write permissions for all predefined nodes
+/// </summary>
 public class EnableReadWriteOnAllBaseVariableStatesNodeService : NodeServiceBase
 {
+	/// <summary>
+	/// Constructor
+	/// </summary>
+	/// <param name="server"></param>
 	public EnableReadWriteOnAllBaseVariableStatesNodeService(IInternalStandardServer server) : base(server)
 	{
 	}
 
+	/// <inheritdoc />
 	public override void Start()
 	{
 		//Give full access to all variable nodes!

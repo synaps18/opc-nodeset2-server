@@ -1,0 +1,31 @@
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:ua="http://opcfoundation.org/UA/2008/02/Types.xsd"
+  xmlns:tns="http://OpcNodeSet2Server"
+  targetNamespace="http://OpcNodeSet2Server"
+  elementFormDefault="qualified"
+>
+  <xs:annotation>
+    <xs:appinfo>
+      <ua:Model ModelUri="http://OpcNodeSet2Server" Version="1.00" PublicationDate="2025-07-17T11:16:16Z" />
+    </xs:appinfo>
+  </xs:annotation>
+  
+  <xs:import namespace="http://opcfoundation.org/UA/" />
+
+  <xs:complexType name="DemoStructure">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int" minOccurs="0" />
+      <xs:element name="Name" type="xs:string" minOccurs="0" nillable="true" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DemoStructure" type="tns:DemoStructure" />
+
+  <xs:complexType name="ListOfDemoStructure">
+    <xs:sequence>
+      <xs:element name="DemoStructure" type="tns:DemoStructure" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListOfDemoStructure" type="tns:ListOfDemoStructure" nillable="true"></xs:element>
+
+</xs:schema>
