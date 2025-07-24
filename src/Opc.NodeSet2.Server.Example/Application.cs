@@ -41,5 +41,7 @@ public class Application : OpcNodeSet2Application
 		//TODO Register services to manage and / or manipulate the nodes of the server here
 		serviceContainer.Register<EnableReadWriteOnAllBaseVariableStatesNodeService>();
 		serviceContainer.Register<MethodHandleService>();
+		serviceContainer.Register<GeneralMethodCalledService>();
+		
 	}
 }

@@ -73,7 +73,14 @@ public class MethodHandleService : NodeServiceBase
 	private ServiceResult Demo_OnValidateDemoStructureCalled(ISystemContext context, MethodState method,
 		NodeId objectId, IList<object> inputArguments, IList<object> outputArguments)
 	{
-		if (inputArguments[0] is not DemoStructure demoStructure) outputArguments[0] = false;
+		if (inputArguments[0] is not ExtensionObject extensionObject || 
+		    extensionObject.Body is not DemoStructure demoStructure || 
+		    demoStructure.Id <= 0 || 
+		    string.IsNullOrEmpty(demoStructure.Name))
+		{
+			outputArguments[0] = false;
+			return ServiceResult.Good;
+		}
 
 		outputArguments[0] = true;
 		return ServiceResult.Good;

@@ -55,8 +55,6 @@ public class NodeServiceBase : INodeServiceBase
 
 		methodNode.OnCallMethod2 = (context, method, parentId, arguments, outputArguments) =>
 		{
-			Console.WriteLine("Method Called: " + methodNode.DisplayName);
-
 			if (_methodObjectHandler[method.NodeId].TryGetValue(parentId, out var handler2))
 				return handler2(context, method, objectId, arguments, outputArguments);
 
