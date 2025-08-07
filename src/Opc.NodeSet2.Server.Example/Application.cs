@@ -38,10 +38,9 @@ public class Application : OpcNodeSet2Application
 	{
 		base.RegisterServices(serviceContainer);
 
-		//TODO Register services to manage and / or manipulate the nodes of the server here
+		//TODO Register services to manipulate or add method handlers to the nodes of the server here
 		serviceContainer.Register<EnableReadWriteOnAllBaseVariableStatesNodeService>();
 		serviceContainer.Register<MethodHandleService>();
 		serviceContainer.Register<GeneralMethodCalledService>();
-		
 	}
 }

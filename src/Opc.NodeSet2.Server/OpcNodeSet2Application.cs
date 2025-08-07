@@ -56,6 +56,8 @@ namespace Opc.NodeSet2.Server
 			await Application.Start(server as ServerBase);
 
 			foreach (var service in Container.ResolveMany<INodeServiceBase>()) service.Start();
+
+			await OnInitialized();
 		}
 
 		protected virtual void RegisterEncodableTypes(IEncodeableTypes encodeableTypes)
@@ -82,6 +84,12 @@ namespace Opc.NodeSet2.Server
 		protected virtual void RegisterTypes(IContainer container)
 		{
 			//Nothing to do here
+		}
+
+		protected virtual Task OnInitialized()
+		{
+			//nothing to do here
+			return Task.CompletedTask;
 		}
 
 		private void RegisterTypesInternal(IContainer container)
